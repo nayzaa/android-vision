@@ -2,10 +2,16 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/topLayout"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp"
+    tools:context="com.google.android.gms.samples.vision.barcodereader.MainActivity"
+    android:id="@+id/topLayout"
+    android:orientation="vertical"
     android:keepScreenOn="true">
 
   <com.google.android.gms.samples.vision.barcodereader.ui.camera.CameraSourcePreview

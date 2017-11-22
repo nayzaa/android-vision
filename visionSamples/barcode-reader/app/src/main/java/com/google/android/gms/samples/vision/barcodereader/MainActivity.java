@@ -19,12 +19,13 @@ package com.google.android.gms.samples.vision.barcodereader;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
-import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
+import com.google.android.gms.samples.vision.barcodereader.information.MainList;
+import com.google.android.gms.samples.vision.barcodereader.quiz.QuizMenu;
 import com.google.android.gms.vision.barcode.Barcode;
 
 /**
@@ -39,6 +40,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private TextView statusMessage;
     private TextView barcodeValue;
 
+
+
     private static final int RC_BARCODE_CAPTURE = 9001;
     private static final String TAG = "BarcodeMain";
 
@@ -48,12 +51,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_main);
 
         statusMessage = (TextView)findViewById(R.id.status_message);
-        barcodeValue = (TextView)findViewById(R.id.barcode_value);
+        statusMessage.setText("Wat U-Mong");
+//        barcodeValue = (TextView)findViewById(R.id.barcode_value);
 
         autoFocus = (CompoundButton) findViewById(R.id.auto_focus);
         useFlash = (CompoundButton) findViewById(R.id.use_flash);
 
         findViewById(R.id.read_barcode).setOnClickListener(this);
+        findViewById(R.id.quiz).setOnClickListener(this);
+        findViewById(R.id.information).setOnClickListener(this);
     }
 
     /**
@@ -70,8 +76,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
             intent.putExtra(BarcodeCaptureActivity.UseFlash, useFlash.isChecked());
 
             startActivityForResult(intent, RC_BARCODE_CAPTURE);
+        }else if(v.getId() == R.id.quiz) {
+            Intent intent = new Intent(this, QuizMenu.class);
+            startActivity(intent);
+        }else if(v.getId() == R.id.information) {
+            Intent intent = new Intent(this, MainList.class);
+            startActivity(intent);
         }
-
     }
 
     /**
@@ -101,17 +112,65 @@ public class MainActivity extends Activity implements View.OnClickListener {
         if (requestCode == RC_BARCODE_CAPTURE) {
             if (resultCode == CommonStatusCodes.SUCCESS) {
                 if (data != null) {
+                    Intent intent = null;
+
                     Barcode barcode = data.getParcelableExtra(BarcodeCaptureActivity.BarcodeObject);
-                    statusMessage.setText(R.string.barcode_success);
-                    barcodeValue.setText(barcode.displayValue);
-                    Log.d(TAG, "Barcode read: " + barcode.displayValue);
+                    String text = barcode.displayValue;
+
+                    switch(text){
+                        case "1":
+                            intent = new Intent(MainActivity.this, ShowResult.class);
+                            intent.putExtra("index",0);
+                            startActivity(intent);
+                            break;
+                        case "2":
+                            intent = new Intent(MainActivity.this, ShowResult.class);
+                            intent.putExtra("index",1);
+                            startActivity(intent);
+                            break;
+                        case "3":
+                            intent = new Intent(MainActivity.this, ShowResult.class);
+                            intent.putExtra("index",2);
+                            startActivity(intent);
+                            break;
+                        case "4":
+                            intent = new Intent(MainActivity.this, ShowResult.class);
+                            intent.putExtra("index",3);
+                            startActivity(intent);
+                            break;
+                        case "5":
+                            intent = new Intent(MainActivity.this, ShowResult.class);
+                            intent.putExtra("index",4);
+                            startActivity(intent);
+                            break;
+                        case "6":
+                            intent = new Intent(MainActivity.this, ShowResult.class);
+                            intent.putExtra("index",5);
+                            startActivity(intent);
+                            break;
+                        case "7":
+                            intent = new Intent(MainActivity.this, ShowResult.class);
+                            intent.putExtra("index",6);
+                            startActivity(intent);
+                            break;
+                        case "8":
+                            intent = new Intent(MainActivity.this, ShowResult.class);
+                            intent.putExtra("index",7);
+                            startActivity(intent);
+                            break;
+                        default:
+                        
+                    }
+//                    statusMessage.setText(R.string.barcode_success);
+//                    barcodeValue.setText(barcode.displayValue);
+//                    Log.d(TAG, "Barcode read: " + barcode.displayValue);
                 } else {
-                    statusMessage.setText(R.string.barcode_failure);
-                    Log.d(TAG, "No barcode captured, intent data is null");
+//                    statusMessage.setText(R.string.barcode_failure);
+//                    Log.d(TAG, "No barcode captured, intent data is null");
                 }
             } else {
-                statusMessage.setText(String.format(getString(R.string.barcode_error),
-                        CommonStatusCodes.getStatusCodeString(resultCode)));
+//                statusMessage.setText(String.format(getString(R.string.barcode_error),
+                        CommonStatusCodes.getStatusCodeString(resultCode);
             }
         }
         else {
