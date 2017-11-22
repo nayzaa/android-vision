@@ -163,7 +163,7 @@ public class QuizActivity extends AppCompatActivity {
 
 
         }
-        if (quiz < 22) {
+        if (quiz < 19) {
 
             // if questions are not over then do this
             currentQ = quesList.get(qid);

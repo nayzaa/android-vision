@@ -64,7 +64,7 @@ public class ResultActivity extends Activity {
 
 
 
-        percentage = (score*100)/23;
+        percentage = (score*100)/20;
 
         if(percentage>=75){
             progress.setFinishedStrokeColor(getResources().getColor(R.color.green));
@@ -88,7 +88,7 @@ public class ResultActivity extends Activity {
         }
 
 
-        progress.setText(score + "/23");
+        progress.setText(score + "/20");
         progress.setTextSize(96.0f);
 
         ObjectAnimator animation = ObjectAnimator.ofInt(progress, "progress", 0, percentage);
