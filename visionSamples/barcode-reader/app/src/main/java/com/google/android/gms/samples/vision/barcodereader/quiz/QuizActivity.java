@@ -24,9 +24,9 @@ public class QuizActivity extends AppCompatActivity {
     List<Question> quesList;
     CounterClass timer;
     int score = 0;
-    int quiz = 1;
+    int quiz = 0;
     int qid = 0;
-    int qNum = 1;
+    int qNum = 0;
     int rowCount;
     Boolean isCorrect = false;
     TextView txtQuestion, txtScore, txtTime;
