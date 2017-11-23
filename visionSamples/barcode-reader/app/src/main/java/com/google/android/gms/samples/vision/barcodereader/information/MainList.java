@@ -45,7 +45,7 @@ public class MainList extends Activity {
                 R.drawable.img05,R.drawable.img06,R.drawable.img07,R.drawable.img08,
                 R.drawable.img09,R.drawable.img10,R.drawable.img11};
 
-        String topic[] = {"The History of Wat Umong","Structure and layout",
+        String topic[] = {"The History of Wat Umong","About Wat Umong",
                 "What is Unique about Wat Umong","Which tunnels has a painting",
                 "Which kinds of painting are appear in Wat Umong", "Chemical Study",
                 "What is XRD","What is SEM/EDS","Color that used for painting",

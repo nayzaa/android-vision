@@ -5,12 +5,13 @@
     android:id="@+id/activity_show_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#60039BE5"
     android:padding="4dp"
     android:orientation="vertical"
+    android:background="@color/background"
     tools:context=".MainActivity">
 
     <ScrollView
+        android:background="@color/background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
@@ -45,7 +46,7 @@
                         android:layout_alignBottom="@id/image"
                         android:layout_marginLeft="4dp"
                         android:layout_marginRight="4dp"
-                        android:background="#90039BE5"
+                        android:background="#C0C0C0E5"
                         android:gravity="center"
                         android:text="Title"
                         android:textColor="#FFFFFF"

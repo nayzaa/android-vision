@@ -6,8 +6,16 @@ package com.google.android.gms.samples.vision.barcodereader;
 
 public class Result {
 
-    int resId[] = {R.drawable.pic01,R.drawable.pic02,R.drawable.pic03,R.drawable.pic04,
-            R.drawable.pic05,R.drawable.pic06,R.drawable.pic07,R.drawable.pic08};
+    int resId[] = {
+            R.drawable.pic01,
+            R.drawable.pic02,
+            R.drawable.pic03,
+            R.drawable.pic04,
+            R.drawable.pic05,
+            R.drawable.pic06,
+            R.drawable.pic07,
+            R.drawable.pic08
+    };
 
     String topic[] = {"All tunnel with number tag",
             "Pattern of painting in tunnel number three",
@@ -27,8 +35,8 @@ public class Result {
             "",
             "",
             "",
-
     };
+
 
 
     public int getResId(int i) {

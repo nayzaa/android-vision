@@ -24,16 +24,17 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="25sp"
         android:layout_marginRight="25sp"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:text="TextView"
         android:layout_marginBottom="5sp"
         android:layout_below="@id/imageView"/>
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/ic_menu_my_calendar"
+        android:adjustViewBounds="true"
+        android:contentDescription="Test"
         android:layout_marginBottom="5sp"
         android:layout_below="@id/topic"/>
 
