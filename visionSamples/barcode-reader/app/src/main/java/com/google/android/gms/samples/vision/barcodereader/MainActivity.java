@@ -50,8 +50,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        statusMessage = (TextView)findViewById(R.id.status_message);
-        statusMessage.setText("Wat U-Mong");
+//        statusMessage = (TextView)findViewById(R.id.status_message);
+//        statusMessage.setText("Wat U-Mong");
 //        barcodeValue = (TextView)findViewById(R.id.barcode_value);
 
         autoFocus = (CompoundButton) findViewById(R.id.auto_focus);

@@ -18,5 +18,7 @@
     <color name="colorPrimaryDark">#01579B</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="background">#202020</color>
+    <color name="background">#CCC</color>
+    <color name="txtButton">#333</color>
+
 </resources>
