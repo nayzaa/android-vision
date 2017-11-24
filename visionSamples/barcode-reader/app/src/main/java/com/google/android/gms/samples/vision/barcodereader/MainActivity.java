@@ -158,6 +158,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
                             intent.putExtra("index",7);
                             startActivity(intent);
                             break;
+                        case "9":
+                            intent = new Intent(MainActivity.this, ShowResult.class);
+                            intent.putExtra("index",8);
+                            startActivity(intent);
+                            break;
+                        case "10":
+                            intent = new Intent(MainActivity.this, ShowResult.class);
+                            intent.putExtra("index",9);
+                            startActivity(intent);
+                            break;
                         default:
                         
                     }
