@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="25sp"
         android:layout_marginRight="25sp"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:layout_marginBottom="5sp"
         android:text="TextView"/>
 
