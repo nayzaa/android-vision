@@ -6,7 +6,7 @@ import android.app.Activity;
  * Created by Workspace on 10/29/2017.
  */
 
-class Question  extends Activity{
+public class Question  extends Activity{
 
 
     private int ID;
@@ -30,14 +30,13 @@ class Question  extends Activity{
 
     }
 
-    public Question(String qUESTION, String oPTA, String oPTB, String oPTC, String oPTD, String aNSWER) {
-        QUESTION = qUESTION;
-        OPTA = oPTA;
-        OPTB = oPTB;
-        OPTC = oPTC;
-        OPTD = oPTD;
-
-        ANSWER = aNSWER;
+    public Question(QuestionBuilder questionBuilder) {
+        QUESTION = questionBuilder.QUESTION;
+        OPTA = questionBuilder.OPTA;
+        OPTB = questionBuilder.OPTB;
+        OPTC = questionBuilder.OPTC;
+        OPTD = questionBuilder.OPTD;
+        ANSWER = questionBuilder.ANSWER;
 
     }
 
@@ -97,4 +96,49 @@ class Question  extends Activity{
         ANSWER = aNSWER;
     }
 
+    public static class QuestionBuilder{
+
+        private String QUESTION;
+        private String OPTA;
+        private String OPTB;
+        private String OPTC;
+        private String OPTD;
+        private String ANSWER;
+
+        public QuestionBuilder(){}
+
+        public QuestionBuilder setQUESTION(String QUESTION) {
+            this.QUESTION = QUESTION;
+            return this;
+        }
+
+        public QuestionBuilder setOPTA(String OPTA) {
+            this.OPTA = OPTA;
+            return this;
+        }
+
+        public QuestionBuilder setOPTB(String OPTB) {
+            this.OPTB = OPTB;
+            return this;
+        }
+
+        public QuestionBuilder setOPTC(String OPTC) {
+            this.OPTC = OPTC;
+            return this;
+        }
+
+        public QuestionBuilder setOPTD(String OPTD) {
+            this.OPTD = OPTD;
+            return this;
+        }
+
+        public QuestionBuilder setANSWER(String ANSWER) {
+            this.ANSWER = ANSWER;
+            return this;
+        }
+
+        public Question build(){
+            return new Question(this);
+        }
+    }
 }

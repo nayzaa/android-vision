@@ -23,7 +23,6 @@ public class Information {
     Information(int resId, String topic) {
         this.resId = resId;
         this.topic = topic;
-
     }
 
 
