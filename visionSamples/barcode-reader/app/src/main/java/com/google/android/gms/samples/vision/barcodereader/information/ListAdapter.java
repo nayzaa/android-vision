@@ -6,33 +6,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.gms.samples.vision.barcodereader.R;
-
-import java.util.ArrayList;
-import java.util.List;
-
 
 
 public class ListAdapter extends BaseAdapter {
     Context context;
 
-    Information information;
-    ListAdapter(Context context, Information information) {
+    InformationImpl informationImpl;
+    ListAdapter(Context context, InformationImpl informationImpl) {
         this.context = context;
-        this.information = information;
+        this.informationImpl = informationImpl;
     }
 
     @Override
     public int getCount() {
-        if (information == null)
+        if (informationImpl == null)
             return 0;
-        if (information.getInformation() == null)
+        if (informationImpl.getInformation() == null)
             return 0;
 
-        return information.getInformation().size();
+        return informationImpl.getInformation().size();
     }
 
     @Override
@@ -60,10 +55,10 @@ public class ListAdapter extends BaseAdapter {
         TextView textDesc = (TextView) view.findViewById(R.id.desc);
 
 
-        if (information != null && information.getInformation() != null){
-            textView.setText(information.getInformation().get(position).getTopic());
-            imageView.setImageResource(information.getInformation().get(position).getResId());
-            textDesc.setText(information.getInformation().get(position).getDescription());
+        if (informationImpl != null && informationImpl.getInformation() != null){
+            textView.setText(informationImpl.getInformation().get(position).getTopic());
+            imageView.setImageResource(informationImpl.getInformation().get(position).getResId());
+            textDesc.setText(informationImpl.getInformation().get(position).getDescription());
         }
 
         return view;

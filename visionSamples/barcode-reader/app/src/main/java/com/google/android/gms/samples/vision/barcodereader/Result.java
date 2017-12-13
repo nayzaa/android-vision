@@ -69,6 +69,8 @@ public class Result {
             ""
     };
 
+    public Result(int resId, String topic, String description) {
+    }
 
 
     public int getResId(int i) {

@@ -2,13 +2,13 @@ package com.google.android.gms.samples.vision.barcodereader.information;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.google.android.gms.samples.vision.barcodereader.AbstractFactory;
+import com.google.android.gms.samples.vision.barcodereader.FactoryProducer;
 import com.google.android.gms.samples.vision.barcodereader.R;
 
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ public class MainList extends Activity {
     private ListView listView;
     List<Information> information = new ArrayList<>();
     int dataSize;
-    public Information listInformation = new Information();
+    public InformationImpl listInformationImpl = new InformationImpl();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class MainList extends Activity {
 
         prepareData();
 
-        ListAdapter adapter = new ListAdapter(MainList.this, listInformation);
+        ListAdapter adapter = new ListAdapter(MainList.this, listInformationImpl);
         listView = (ListView) findViewById(R.id.list_item);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(listViewClickListener);
@@ -56,21 +56,14 @@ public class MainList extends Activity {
 
         dataSize = resId.length;
 
-
-//        Log.d("khem", "dataSize " + resId.length);
-//        Log.d("khem", "Topic " + resId.length);
-//        Log.d("khem", "description " + resId.length);
-
-
+        AbstractFactory informationFactory = FactoryProducer.getFactory("information");
 
         for (int i = 0; i < dataSize; i++) {
-//            Log.d("khem", " " + i);
-            Information information1 = new Information(resId[i], topic[i], description[i]);
-            information.add(information1);
+            information.add(informationFactory.getInformation(resId[i], topic[i], description[i]));
         }
 
 
-        listInformation.setInformations(information);
+        listInformationImpl.setInformationImpls(information);
 
     }
 
@@ -85,9 +78,9 @@ public class MainList extends Activity {
 //                    Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(MainList.this,ShowDetailActivity.class);
-            intent.putExtra("resId",listInformation.getInformation().get(position).getResId());
-            intent.putExtra("topic",listInformation.getInformation().get(position).getTopic());
-            intent.putExtra("desc",listInformation.getInformation().get(position).getDescription());
+            intent.putExtra("resId", listInformationImpl.getInformation().get(position).getResId());
+            intent.putExtra("topic", listInformationImpl.getInformation().get(position).getTopic());
+            intent.putExtra("desc", listInformationImpl.getInformation().get(position).getDescription());
 
             startActivity(intent);
         }

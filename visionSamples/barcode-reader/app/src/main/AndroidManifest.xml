@@ -55,12 +55,12 @@
             android:background="@color/background"
             android:theme="@style/AppTheme"/>
         <activity
-            android:name=".information.MainList"
+            android:name=".informationImpl.MainList"
             android:label="Information"
             android:background="@color/background"
             android:theme="@style/AppTheme"/>
         <activity
-            android:name=".information.ShowDetailActivity"
+            android:name=".informationImpl.ShowDetailActivity"
             android:label="Information"
             android:background="@color/background"
             android:theme="@style/AppTheme"/>
